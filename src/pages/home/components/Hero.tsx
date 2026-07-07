@@ -112,20 +112,11 @@ const Hero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <button
-            onClick={() => scrollTo('products')}
-            className="relative overflow-hidden text-cream font-black px-8 py-3.5 rounded-full text-sm tracking-widest uppercase transition-colors cursor-pointer whitespace-nowrap group"
-            style={{ fontFamily: "'Josefin Sans', sans-serif", background: '#5C1422', boxShadow: '0 0 20px rgba(122,29,46,0.55), 0 0 12px rgba(201,169,110,0.3)' }}
+            onClick={() => scrollTo('historia')}
+            className="text-cream font-black px-8 py-3.5 rounded-full text-sm tracking-widest uppercase transition-colors cursor-pointer whitespace-nowrap"
+            style={{ fontFamily: "'Josefin Sans', sans-serif", background: '#5C1422' }}
           >
-            <span className="relative z-10">{t('hero_cta_primary')}</span>
-            <span className="absolute top-0 bottom-0 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-          </button>
-          <button
-            onClick={() => scrollTo('farmers')}
-            className="relative overflow-hidden border border-cream/60 hover:border-cream text-cream hover:bg-cream/5 font-black px-8 py-3.5 rounded-full text-sm tracking-widest uppercase transition-all cursor-pointer whitespace-nowrap group"
-            style={{ fontFamily: "'Josefin Sans', sans-serif", boxShadow: '0 0 18px rgba(245,235,210,0.18)' }}
-          >
-            <span className="relative z-10">{t('hero_cta_secondary')}</span>
-            <span className="absolute top-0 bottom-0 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            CONOCE MÁS
           </button>
         </div>
       </div>
