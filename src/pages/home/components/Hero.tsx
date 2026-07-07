@@ -65,7 +65,7 @@ const Hero = () => {
             letterSpacing: '0.3em',
             color: '#8B1A2E',
             lineHeight: 1,
-          }}>PACHA</span>
+          }}>PΛCHΛ</span>
           <span style={{
             display: 'block',
             fontFamily: "'Josefin Sans', sans-serif",
