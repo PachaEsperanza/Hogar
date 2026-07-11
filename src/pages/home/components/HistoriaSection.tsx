@@ -156,7 +156,7 @@ const HistoriaSection = () => {
           </div>
 
           {/* RIGHT: COMPARTO TU ESPERANZA — alineado a la card izquierda */}
-          <div style={fadeRight} className="lg:pt-[8.5rem]">
+          <div style={fadeRight} className="lg:pt-0">
             <div style={{ margin: '1.2rem 0 0.7rem' }}>
               <p style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 100, fontSize: 'clamp(1.4rem,2.8vw,2.2rem)', letterSpacing: '0.25em', lineHeight: 1, display: 'block', background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', WebkitTextStroke: '0.6px #FFD700' }}>PΛCHΛ</p>
               <p style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 100, fontSize: 'clamp(0.6rem,1.2vw,0.95rem)', letterSpacing: '0.55em', textTransform: 'uppercase', marginTop: '0.15em', lineHeight: 1, background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>ESPERANZA</p>
