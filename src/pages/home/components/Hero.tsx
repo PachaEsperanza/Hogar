@@ -63,7 +63,7 @@ const Hero = () => {
             fontSize: 'clamp(3rem,8vw,6.5rem)',
             fontWeight: 100,
             letterSpacing: '0.3em',
-            lineHeight: 1, background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', WebkitTextStroke: '0.6px #FFD700',
+            lineHeight: 1, color: '#D4A843',
           }}>PΛCHΛ</span>
           <span style={{
             display: 'block',
