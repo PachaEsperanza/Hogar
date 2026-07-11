@@ -64,10 +64,10 @@ export default function UnidosSection() {
             fontStyle: 'italic',
             fontWeight: 400,
             fontSize: 'clamp(1.1rem, 2.2vw, 2.2rem)',
-            color: '#C9A84C',
             lineHeight: 1.25,
             marginBottom: '1.2rem',
-            textShadow: '0 1px 6px rgba(0,0,0,0.25)',
+            background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', WebkitTextStroke: '0.3px #FFD700',
           }}>
             {t('unidos_frase')}
           </p>
@@ -77,7 +77,7 @@ export default function UnidosSection() {
             fontSize: 'clamp(1.4rem, 3vw, 2.8rem)',
             lineHeight: 1.3, letterSpacing: '0.1em',
             background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)',
-            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', WebkitTextStroke: '0.3px #FFD700',
           }}>
             {t('unidos_title')}
           </h2>
