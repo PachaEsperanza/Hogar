@@ -16,7 +16,7 @@ const ProcessSection = () => {
         >
           <source src="/Hogar/videos/video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-coffee-900/85" />
+        <div className="absolute inset-0 bg-coffee-900/60" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
