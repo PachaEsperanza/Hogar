@@ -53,7 +53,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-start justify-center text-left px-6 md:px-16 max-w-4xl">
-        <p className="font-black text-[clamp(0.75rem,1.6vw,1.25rem)] leading-tight tracking-[0.08em] text-cream uppercase mb-4 whitespace-pre-line pl-1 md:pl-2" style={{ fontFamily: "'Josefin Sans', sans-serif" }}>
+        <p className="font-bold text-[clamp(0.75rem,1.6vw,1.25rem)] leading-tight tracking-[0.08em] uppercase mb-4 whitespace-pre-line pl-1 md:pl-2" style={{ fontFamily: "'Josefin Sans', sans-serif", background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
           {t('hero_subtitle')}
         </p>
         <h1 className="mb-8 inline-block leading-none">
