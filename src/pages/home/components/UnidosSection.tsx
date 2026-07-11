@@ -76,8 +76,8 @@ export default function UnidosSection() {
             fontWeight: 100,
             fontSize: 'clamp(1.4rem, 3vw, 2.8rem)',
             lineHeight: 1.3, letterSpacing: '0.1em',
-            background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)',
-            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', WebkitTextStroke: '0.3px #FFD700',
+            color: '#ffffff',
+            textTransform: 'uppercase',
           }}>
             {t('unidos_title')}
           </h2>
