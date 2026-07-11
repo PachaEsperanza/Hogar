@@ -41,7 +41,7 @@ export default function UnidosSection() {
   return (
     <section
       id="unidos"
-      className="relative py-24 overflow-hidden"
+      className="relative py-10 overflow-hidden"
       style={{ background: '#0f0805' }}
     >
       {/* Fondo sin overlay */}
@@ -57,7 +57,7 @@ export default function UnidosSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-6">
           {/* Frase cursiva guinda */}
           <p style={{
             fontFamily: "'Playfair Display', serif",
@@ -182,7 +182,7 @@ export default function UnidosSection() {
         </div>
 
         {/* Controles */}
-        <div className="flex items-center justify-center gap-6 mt-10">
+        <div className="flex items-center justify-center gap-6 mt-5">
           <button
             onClick={() => goTo(active - 1)}
             className="w-10 h-10 flex items-center justify-center rounded-full transition-all cursor-pointer"
