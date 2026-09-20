@@ -82,7 +82,16 @@ const Manifesto = () => {
   const [contentVisible, setContentVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [carouselActive, setCarouselActive] = useState(0);
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1280
+  );
+
+  useEffect(() => {
+    const onResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   const sintropicoCards = [
     { image: '/Hogar/images/1.png', title: 'Sombra y microclima', description: 'Un nivel de sombra entre 30% y 50% ayuda a equilibrar producción y biodiversidad. Los árboles reducen hasta 6°C la temperatura máxima frente al café a pleno sol, protegiendo la planta del estrés por calor y mejorando el microclima general de la parcela.' },
@@ -159,9 +168,9 @@ const Manifesto = () => {
           <p
             style={{
               fontFamily: "'Josefin Sans', sans-serif",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: '0.55em',
-              color: '#D9A441',
+              color: '#FFFFFF',
               textTransform: 'uppercase',
               fontSize: 'clamp(0.9rem, 2.2vw, 1.5rem)',
             }}
@@ -170,23 +179,56 @@ const Manifesto = () => {
           </p>
         </div>
 
-        {/* Sintrópico cards carousel — liquid glass */}
-        <div className="relative">
-          <div
-            ref={carouselRef}
-            className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollBehavior: 'smooth' }}
-          >
-            {sintropicoCards.map((card, i) => (
+        {/* Sintrópico cards carousel — fan style, 2 cards centradas (como Pacha Esperanza) */}
+        <div style={{ position: 'relative', minHeight: 460 }}>
+          {sintropicoCards.map((card, idx) => {
+            const total = sintropicoCards.length;
+            let diff = idx - carouselActive;
+            if (diff > total / 2) diff -= total;
+            if (diff < -total / 2) diff += total;
+
+            const isCenter = diff === 0 || diff === 1;
+            const distFromCenter = diff === 0 || diff === 1 ? 0 : diff < 0 ? -diff : diff - 1;
+
+            let show = true;
+            if (distFromCenter === 1 && screenWidth < 640) show = false;
+            if (distFromCenter === 2 && screenWidth < 1024) show = false;
+            if (distFromCenter >= 3) show = false;
+
+            const centerWidth = Math.min(300, (screenWidth - 96) / 2);
+            const cardWidth = isCenter ? centerWidth : distFromCenter === 1 ? 200 : 160;
+            const imgHeight = isCenter ? 180 : 130;
+            const scale = isCenter ? 1 : distFromCenter === 1 ? 0.9 : 0.75;
+            const opacity = !show ? 0 : isCenter ? 1 : distFromCenter === 1 ? 0.7 : 0.4;
+            const zIndex = 20 - distFromCenter;
+            const step = centerWidth + 30;
+            const adjusted = diff - 0.5;
+
+            return (
               <div
-                key={i}
-                className="snap-start flex-shrink-0 w-[85%] sm:w-[47%] rounded-2xl overflow-hidden backdrop-blur-xl"
-                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}
+                key={idx}
+                onClick={() => setCarouselActive(idx)}
+                className="rounded-2xl overflow-hidden border cursor-pointer"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: '50%',
+                  width: cardWidth,
+                  borderColor: isCenter ? 'rgba(212,164,65,0.4)' : 'rgba(255,255,255,0.1)',
+                  background: isCenter ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  transform: `translateX(calc(-50% + ${adjusted * step}px)) scale(${scale})`,
+                  opacity,
+                  zIndex,
+                  pointerEvents: show ? 'auto' : 'none',
+                  transition: 'transform 500ms ease, opacity 500ms ease, width 500ms ease',
+                }}
               >
-                <div className="w-full h-[220px] overflow-hidden">
+                <div style={{ overflow: 'hidden', height: imgHeight }}>
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                 </div>
-                <div className="p-5">
+                <div style={{ padding: isCenter ? 24 : 16 }}>
                   <h3
                     className="mb-2"
                     style={{
@@ -194,30 +236,47 @@ const Manifesto = () => {
                       fontWeight: 100,
                       letterSpacing: '0.06em',
                       color: '#D9A441',
-                      fontSize: '1.15rem',
+                      fontSize: isCenter ? '1.15rem' : '0.85rem',
                     }}
                   >
                     {card.title}
                   </h3>
-                  <p className="text-cream/70 text-sm leading-relaxed">{card.description}</p>
+                  {isCenter && (
+                    <p className="text-cream/70 text-sm leading-relaxed">{card.description}</p>
+                  )}
                 </div>
               </div>
+            );
+          })}
+        </div>
+
+        {/* Controles */}
+        <div className="flex items-center justify-center gap-6 mt-10">
+          <button
+            onClick={() => setCarouselActive((i) => (i - 1 + sintropicoCards.length) % sintropicoCards.length)}
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 bg-white/10 text-cream hover:bg-white/20 transition-all cursor-pointer"
+          >
+            <i className="ri-arrow-left-s-line text-lg" />
+          </button>
+
+          <div className="flex gap-2">
+            {sintropicoCards.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCarouselActive(i)}
+                className={`rounded-full transition-all cursor-pointer ${
+                  i === carouselActive ? 'w-6 h-2' : 'w-2 h-2 bg-white/30 hover:bg-white/50'
+                }`}
+                style={i === carouselActive ? { background: '#D9A441' } : undefined}
+              />
             ))}
           </div>
-          {/* Arrows */}
+
           <button
-            onClick={() => carouselRef.current?.scrollBy({ left: -(carouselRef.current.clientWidth * 0.95), behavior: 'smooth' })}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 items-center justify-center rounded-full text-cream cursor-pointer"
-            style={{ background: 'rgba(20,10,5,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
+            onClick={() => setCarouselActive((i) => (i + 1) % sintropicoCards.length)}
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 bg-white/10 text-cream hover:bg-white/20 transition-all cursor-pointer"
           >
-            <i className="ri-arrow-left-s-line text-xl" />
-          </button>
-          <button
-            onClick={() => carouselRef.current?.scrollBy({ left: carouselRef.current.clientWidth * 0.95, behavior: 'smooth' })}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 items-center justify-center rounded-full text-cream cursor-pointer"
-            style={{ background: 'rgba(20,10,5,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
-          >
-            <i className="ri-arrow-right-s-line text-xl" />
+            <i className="ri-arrow-right-s-line text-lg" />
           </button>
         </div>
 
