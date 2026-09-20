@@ -87,7 +87,7 @@ const cs = {
   contact_stat_direct: 'Jde přímo farmáři',
   contact_adopters_count: '{{n}} adoptujících',
   contact_support_btn: 'Podpořit {{name}}',
-  contact_cert_program: 'Program sponzorství HOLZEN',
+  contact_cert_program: 'Program sponzorství Salkantay Andino',
   contact_cert_acredita: 'Tento certifikát potvrzuje, že',
   contact_cert_body: 'se čestně zavázal/a chránit a podporovat {{farmer}}, přispívat k blahu rodin pěstitelů kávy a zachování peruánské kávy pro budoucí generace.',
   contact_cert_godparent: 'Sponzor',
@@ -103,7 +103,7 @@ const cs = {
   footer_farmers: "Producenti",
   footer_process: "Proces",
   footer_contact: 'Kontakt',
-  footer_copyright: "© 2026 Pacha Esperanza. Všechna práva vyhrazena.",
+  footer_copyright: "© 2026 Salkantay Andino. Všechna práva vyhrazena.",
 
   // Reviews
   reviews_eyebrow: 'Hlasy ze světa',
@@ -115,7 +115,7 @@ const cs = {
   cart_total: 'Celkem košík',
   cart_whatsapp_btn: 'Objednat přes WhatsApp',
   cart_whatsapp_note: 'Ozveme se vám k potvrzení dostupnosti, dopravy a platby.',
-  cart_whatsapp_message: 'Dobrý den, mám zájem o kávu HOLZEN. Moje objednávka:\n{{lines}}\nOdhadovaný celkový součet: ${{total}}',
+  cart_whatsapp_message: 'Dobrý den, mám zájem o kávu Salkantay Andino. Moje objednávka:\n{{lines}}\nOdhadovaný celkový součet: ${{total}}',
 
   // CookieBar
   cookie_text: 'Používáme cookies ke zlepšení vašeho zážitku.',

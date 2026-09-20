@@ -87,7 +87,7 @@ const en = {
   contact_stat_direct: 'Goes directly to the farmer',
   contact_adopters_count: '{{n}} adopters',
   contact_support_btn: 'Support {{name}}',
-  contact_cert_program: 'HOLZEN Sponsorship Program',
+  contact_cert_program: 'Salkantay Andino Sponsorship Program',
   contact_cert_acredita: 'This certificate certifies that',
   contact_cert_body: 'has honorably committed to protecting and supporting {{farmer}}, contributing to the well-being of coffee-growing families and the preservation of Peruvian coffee for future generations.',
   contact_cert_godparent: 'Sponsor',
@@ -103,7 +103,7 @@ const en = {
   footer_farmers: "Producers",
   footer_process: "Process",
   footer_contact: 'Contact',
-  footer_copyright: "© 2026 Pacha Esperanza. All rights reserved.",
+  footer_copyright: "© 2026 Salkantay Andino. All rights reserved.",
 
   // Reviews
   reviews_eyebrow: 'Voices from the World',
@@ -115,7 +115,7 @@ const en = {
   cart_total: 'Basket total',
   cart_whatsapp_btn: 'Order via WhatsApp',
   cart_whatsapp_note: 'We\'ll contact you to confirm availability, shipping and payment.',
-  cart_whatsapp_message: 'Hello, I\'m interested in HOLZEN coffee. My order:\n{{lines}}\nEstimated total: ${{total}}',
+  cart_whatsapp_message: 'Hello, I\'m interested in Salkantay Andino coffee. My order:\n{{lines}}\nEstimated total: ${{total}}',
 
   // CookieBar
   cookie_text: 'We use cookies to improve your experience.',

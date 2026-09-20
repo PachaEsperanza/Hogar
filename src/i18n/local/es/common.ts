@@ -87,7 +87,7 @@ const es = {
   contact_stat_direct: 'Va directo al productor',
   contact_adopters_count: '{{n}} adoptantes',
   contact_support_btn: 'Apoyar a {{name}}',
-  contact_cert_program: 'Programa de Apadrinamiento HOLZEN',
+  contact_cert_program: 'Programa de Apadrinamiento Salkantay Andino',
   contact_cert_acredita: 'Este certificado acredita que',
   contact_cert_body: 'ha asumido con honor su compromiso de proteger y sostener a {{farmer}}, contribuyendo al bienestar de las familias caficultoras y a la preservación del café peruano para las generaciones futuras.',
   contact_cert_godparent: 'Padrino / Madrina',
@@ -115,7 +115,7 @@ const es = {
   cart_total: 'Total canasta',
   cart_whatsapp_btn: 'Pedir por WhatsApp',
   cart_whatsapp_note: 'Te contactaremos para confirmar disponibilidad, envío y método de pago.',
-  cart_whatsapp_message: 'Hola, me interesa el café HOLZEN. Mi pedido:\n{{lines}}\nTotal estimado: ${{total}}',
+  cart_whatsapp_message: 'Hola, me interesa el café Salkantay Andino. Mi pedido:\n{{lines}}\nTotal estimado: ${{total}}',
 
   // CookieBar
   cookie_text: 'Usamos cookies para mejorar tu experiencia.',

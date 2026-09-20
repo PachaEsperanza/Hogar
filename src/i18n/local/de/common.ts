@@ -87,7 +87,7 @@ const de = {
   contact_stat_direct: 'Geht direkt an den Bauern',
   contact_adopters_count: '{{n}} Adoptierende',
   contact_support_btn: '{{name}} unterstützen',
-  contact_cert_program: 'HOLZEN Patenschaftsprogramm',
+  contact_cert_program: 'Salkantay Andino Patenschaftsprogramm',
   contact_cert_acredita: 'Dieses Zertifikat bestätigt, dass',
   contact_cert_body: 'sich ehrenhaft verpflichtet hat, {{farmer}} zu schützen und zu unterstützen, und damit zum Wohlergehen der Kaffeebauernfamilien und zur Erhaltung des peruanischen Kaffees für zukünftige Generationen beiträgt.',
   contact_cert_godparent: 'Pate / Patin',
@@ -103,7 +103,7 @@ const de = {
   footer_farmers: "Produzenten",
   footer_process: "Prozess",
   footer_contact: 'Kontakt',
-  footer_copyright: "© 2026 Pacha Esperanza. Alle Rechte vorbehalten.",
+  footer_copyright: "© 2026 Salkantay Andino. Alle Rechte vorbehalten.",
 
   // Reviews
   reviews_eyebrow: 'Stimmen aus der Welt',
@@ -115,7 +115,7 @@ const de = {
   cart_total: 'Korb gesamt',
   cart_whatsapp_btn: 'Per WhatsApp bestellen',
   cart_whatsapp_note: 'Wir melden uns zur Bestätigung von Verfügbarkeit, Versand und Zahlung.',
-  cart_whatsapp_message: 'Hallo, ich interessiere mich für HOLZEN Kaffee. Meine Bestellung:\n{{lines}}\nGeschätzter Gesamtbetrag: ${{total}}',
+  cart_whatsapp_message: 'Hallo, ich interessiere mich für Salkantay Andino Kaffee. Meine Bestellung:\n{{lines}}\nGeschätzter Gesamtbetrag: ${{total}}',
 
   // CookieBar
   cookie_text: 'Wir verwenden Cookies, um deine Erfahrung zu verbessern.',
