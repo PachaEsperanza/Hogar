@@ -180,7 +180,7 @@ const Manifesto = () => {
         </div>
 
         {/* Sintrópico cards carousel — fan style, 2 cards centradas (como Pacha Esperanza) */}
-        <div style={{ position: 'relative', minHeight: 460 }}>
+        <div style={{ position: 'relative', minHeight: 500 }}>
           {sintropicoCards.map((card, idx) => {
             const total = sintropicoCards.length;
             let diff = idx - carouselActive;
@@ -195,9 +195,9 @@ const Manifesto = () => {
             if (distFromCenter === 2 && screenWidth < 1024) show = false;
             if (distFromCenter >= 3) show = false;
 
-            const centerWidth = Math.min(300, (screenWidth - 96) / 2);
+            const centerWidth = Math.min(360, (screenWidth - 96) / 2);
             const cardWidth = isCenter ? centerWidth : distFromCenter === 1 ? 200 : 160;
-            const imgHeight = isCenter ? 180 : 130;
+            const imgHeight = isCenter ? 230 : 130;
             const scale = isCenter ? 1 : distFromCenter === 1 ? 0.9 : 0.75;
             const opacity = !show ? 0 : isCenter ? 1 : distFromCenter === 1 ? 0.7 : 0.4;
             const zIndex = 20 - distFromCenter;
@@ -230,10 +230,10 @@ const Manifesto = () => {
                 </div>
                 <div style={{ padding: isCenter ? 24 : 16 }}>
                   <h3
-                    className="mb-2"
+                    className="mb-2 uppercase"
                     style={{
                       fontFamily: "'Josefin Sans', sans-serif",
-                      fontWeight: 100,
+                      fontWeight: 700,
                       letterSpacing: '0.06em',
                       color: '#D9A441',
                       fontSize: isCenter ? '1.15rem' : '0.85rem',
@@ -242,7 +242,7 @@ const Manifesto = () => {
                     {card.title}
                   </h3>
                   {isCenter && (
-                    <p className="text-cream/70 text-sm leading-relaxed">{card.description}</p>
+                    <p className="text-cream/70 text-sm" style={{ lineHeight: 1.35 }}>{card.description}</p>
                   )}
                 </div>
               </div>
