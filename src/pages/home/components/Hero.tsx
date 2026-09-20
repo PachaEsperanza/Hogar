@@ -58,23 +58,23 @@ const Hero = () => {
         </p>
         <h1 className="mb-8 inline-block leading-none">
           <img
-            src="/Principal/images/salkantay-icon.png"
+            src="/Hogar/images/salkantay-icon.png"
             alt=""
             style={{ display: 'block', margin: '0 auto 0.6em', height: 'clamp(36px, 5vw, 56px)', width: 'auto' }}
           />
           <span style={{
             display: 'block',
-            fontFamily: "'Raleway', sans-serif",
+            fontFamily: "'Josefin Sans', sans-serif",
             fontSize: 'clamp(2rem,5.5vw,4.3rem)',
-            fontWeight: 400,
+            fontWeight: 100,
             letterSpacing: '0.3em',
             lineHeight: 1, color: '#FFFFFF',
           }}>SΛLKΛNTΛY</span>
           <span style={{
             display: 'block',
-            fontFamily: "'Raleway', sans-serif",
+            fontFamily: "'Josefin Sans', sans-serif",
             fontSize: 'clamp(0.9rem,2.2vw,1.8rem)',
-            fontWeight: 500,
+            fontWeight: 700,
             letterSpacing: '0.55em',
             color: '#D9A441',
             textAlign: 'center',
