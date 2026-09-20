@@ -134,7 +134,7 @@ const Manifesto = () => {
 
   
   return (
-    <section id="manifesto" ref={sectionRef} className="relative bg-coffee-900 py-16 px-6 overflow-hidden">
+    <section id="manifesto" ref={sectionRef} className="relative bg-coffee-900 py-8 px-6 overflow-hidden">
       <video
         autoPlay
         muted
@@ -147,8 +147,8 @@ const Manifesto = () => {
       <div className="relative z-10 max-w-6xl mx-auto">
 
         {/* Title */}
-        <div className={`text-center mb-12 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <h2 className="mb-2">
+        <div className={`text-center mb-8 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <h2 className="mb-0" style={{ lineHeight: 1 }}>
             <em
               style={{
                 fontStyle: 'italic',
@@ -173,6 +173,8 @@ const Manifesto = () => {
               color: '#FFFFFF',
               textTransform: 'uppercase',
               fontSize: 'clamp(0.9rem, 2.2vw, 1.5rem)',
+              marginTop: '-0.15em',
+              lineHeight: 1,
             }}
           >
             {t('manifesto_subtitle')}
@@ -180,7 +182,7 @@ const Manifesto = () => {
         </div>
 
         {/* Sintrópico cards carousel — fan style, 2 cards centradas (como Pacha Esperanza) */}
-        <div style={{ position: 'relative', minHeight: 500 }}>
+        <div style={{ position: 'relative', minHeight: 580 }}>
           {sintropicoCards.map((card, idx) => {
             const total = sintropicoCards.length;
             let diff = idx - carouselActive;
@@ -197,7 +199,6 @@ const Manifesto = () => {
 
             const centerWidth = Math.min(360, (screenWidth - 96) / 2);
             const cardWidth = isCenter ? centerWidth : distFromCenter === 1 ? 200 : 160;
-            const imgHeight = isCenter ? 230 : 130;
             const scale = isCenter ? 1 : distFromCenter === 1 ? 0.9 : 0.75;
             const opacity = !show ? 0 : isCenter ? 1 : distFromCenter === 1 ? 0.7 : 0.4;
             const zIndex = 20 - distFromCenter;
@@ -225,8 +226,8 @@ const Manifesto = () => {
                   transition: 'transform 500ms ease, opacity 500ms ease, width 500ms ease',
                 }}
               >
-                <div style={{ overflow: 'hidden', height: imgHeight }}>
-                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                <div style={{ overflow: 'hidden', aspectRatio: '1.2 / 1', background: 'rgba(0,0,0,0.25)' }}>
+                  <img src={card.image} alt={card.title} className="w-full h-full object-contain" />
                 </div>
                 <div style={{ padding: isCenter ? 24 : 16 }}>
                   <h3
