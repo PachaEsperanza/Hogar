@@ -74,7 +74,7 @@ const Hero = () => {
             display: 'block',
             fontFamily: "'Josefin Sans', sans-serif",
             fontSize: 'clamp(0.9rem,2.2vw,1.8rem)',
-            fontWeight: 100,
+            fontWeight: 300,
             letterSpacing: '0.55em',
             color: '#D9A441',
             textAlign: 'center',
