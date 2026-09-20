@@ -78,14 +78,17 @@ const CircleStat = ({
 
 const Manifesto = () => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState(0);
   const [statsVisible, setStatsVisible] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  const tabs = [
-    { key: 'historia', label: t('manifesto_tab_historia'), content: t('manifesto_historia') },
+  // TODO: reemplazar con las fotos y textos reales de cada tarjeta
+  const sintropicoCards = [
+    { image: '/Hogar/images/imagen1.png', title: 'Título de la tarjeta 1', description: 'Descripción pendiente — pásame el texto y la foto real.' },
+    { image: '/Hogar/images/imagen1.png', title: 'Título de la tarjeta 2', description: 'Descripción pendiente — pásame el texto y la foto real.' },
+    { image: '/Hogar/images/imagen1.png', title: 'Título de la tarjeta 3', description: 'Descripción pendiente — pásame el texto y la foto real.' },
   ];
 
   const stats = [
@@ -130,77 +133,79 @@ const Manifesto = () => {
         src="/Hogar/videos/fondo2.mp4"
       />
       <div className="absolute inset-0 bg-coffee-900/45 pointer-events-none" />
-      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-3 gap-10 items-start">
+      <div className="relative z-10 max-w-6xl mx-auto">
 
-        {/* LEFT */}
-        <div className={`lg:col-span-2 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-          <h2 className="text-2xl md:text-3xl text-cream leading-tight mb-8 uppercase" style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 100, letterSpacing: '0.1em' }}>
-            {t('manifesto_title').split('\n').map((line, i, arr) => (
-              i === arr.length - 1
-                ? <span key={i}>{line} <em style={{ fontStyle: 'italic', fontFamily: "'Playfair Display', serif", fontWeight: 700, textTransform: 'lowercase', background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{t('manifesto_title_highlight')}</em></span>
-                : <span key={i}>{line}<br /></span>
-            ))}
+        {/* Title */}
+        <div className={`text-center mb-12 transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <h2 className="mb-2">
+            <em
+              style={{
+                fontStyle: 'italic',
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                textTransform: 'lowercase',
+                fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+                background: 'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              {t('manifesto_title')}
+            </em>
           </h2>
-
-
-
-          {/* Tab content */}
-          <div className="mb-8">
-            {tabs.map((tab, i) => {
-              const parts = tab.content.split('COMPARTO_TU_ESPERANZA ');
-              return (
-                <div
-                  key={tab.key}
-                  className={`transition-all duration-500 ${activeTab === i ? 'opacity-100 block' : 'opacity-0 hidden'}`}
-                >
-                  <p className="text-cream/80 font-serif text-sm leading-relaxed mb-6 rounded-2xl p-5" style={{ background: 'rgba(20,10,5,0.55)', backdropFilter: 'blur(12px)', border: '1px solid rgba(201,168,76,0.15)' }}>
-                    {parts[0]}
-                  </p>
-                  {parts[1] && (
-                    <>
-                      <p
-                        className="leading-tight mb-4 inline-block uppercase"
-                        style={{
-                          fontFamily: "'Josefin Sans', sans-serif",
-                          fontSize: 'clamp(1.5rem, 3.3vw, 2.3rem)',
-                          letterSpacing: '0.08em',
-                          fontWeight: 500,
-                          color: '#D4A843',
-                          WebkitTextStroke: '0.3px #D4A843',
-                        }}
-                      >
-                        <span style={{ display:'block', fontFamily:"'Josefin Sans',sans-serif", fontWeight:100, letterSpacing:'0.25em', background:'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', WebkitTextStroke:'0.6px #FFD700' }}>PΛCHΛ</span>
-                        <span style={{ display:'block', fontFamily:"'Josefin Sans',sans-serif", fontWeight:100, fontSize:'0.7em', letterSpacing:'0.55em', background:'linear-gradient(90deg,#FFD700,#FFEE00,#FFD700)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>ESPERANZA</span>
-                      </p>
-                      <p className="text-cream/80 font-serif text-sm leading-relaxed rounded-2xl p-5" style={{ background: 'rgba(20,10,5,0.55)', backdropFilter: 'blur(12px)', border: '1px solid rgba(201,168,76,0.15)' }}>
-                        {parts[1]}
-                      </p>
-                    </>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Quote */}
-          <blockquote className="border-l-2 border-gold pl-5 mb-10">
-            <p className="font-serif italic text-cream/90 text-lg leading-relaxed whitespace-pre-line">
-              {t('manifesto_quote')}
-            </p>
-          </blockquote>
-
+          <p
+            style={{
+              fontFamily: "'Josefin Sans', sans-serif",
+              fontWeight: 100,
+              letterSpacing: '0.55em',
+              color: '#D9A441',
+              textTransform: 'uppercase',
+              fontSize: 'clamp(0.9rem, 2.2vw, 1.5rem)',
+            }}
+          >
+            {t('manifesto_subtitle')}
+          </p>
         </div>
 
-        {/* Image column */}
-        <div className="flex flex-col gap-4 lg:justify-center lg:h-full">
-          <div className="rounded-2xl overflow-hidden w-full" style={{ border: '1px solid rgba(201,168,76,0.2)' }}>
-            <img
-              src="/Hogar/images/imagen1.png"
-              alt="CompartoTuEsperanza"
-              className="w-full h-full object-cover"
-              style={{ minHeight: '360px', maxHeight: '480px', width: '100%', objectFit: 'cover' }}
-            />
+        {/* Sintrópico cards carousel — liquid glass */}
+        <div className="relative">
+          <div
+            ref={carouselRef}
+            className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {sintropicoCards.map((card, i) => (
+              <div
+                key={i}
+                className="snap-start flex-shrink-0 w-[280px] md:w-[320px] rounded-2xl overflow-hidden backdrop-blur-xl"
+                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}
+              >
+                <div className="w-full h-[200px] overflow-hidden">
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-cream font-serif text-lg mb-2">{card.title}</h3>
+                  <p className="text-cream/70 text-sm leading-relaxed">{card.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
+          {/* Arrows */}
+          <button
+            onClick={() => carouselRef.current?.scrollBy({ left: -340, behavior: 'smooth' })}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 items-center justify-center rounded-full text-cream cursor-pointer"
+            style={{ background: 'rgba(20,10,5,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            <i className="ri-arrow-left-s-line text-xl" />
+          </button>
+          <button
+            onClick={() => carouselRef.current?.scrollBy({ left: 340, behavior: 'smooth' })}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 items-center justify-center rounded-full text-cream cursor-pointer"
+            style={{ background: 'rgba(20,10,5,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            <i className="ri-arrow-right-s-line text-xl" />
+          </button>
         </div>
 
       </div>
