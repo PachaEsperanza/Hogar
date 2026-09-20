@@ -84,11 +84,13 @@ const Manifesto = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // TODO: reemplazar con las fotos y textos reales de cada tarjeta
   const sintropicoCards = [
-    { image: '/Hogar/images/imagen1.png', title: 'Título de la tarjeta 1', description: 'Descripción pendiente — pásame el texto y la foto real.' },
-    { image: '/Hogar/images/imagen1.png', title: 'Título de la tarjeta 2', description: 'Descripción pendiente — pásame el texto y la foto real.' },
-    { image: '/Hogar/images/imagen1.png', title: 'Título de la tarjeta 3', description: 'Descripción pendiente — pásame el texto y la foto real.' },
+    { image: '/Hogar/images/1.png', title: 'Sombra y microclima', description: 'Un nivel de sombra entre 30% y 50% ayuda a equilibrar producción y biodiversidad. Los árboles reducen hasta 6°C la temperatura máxima frente al café a pleno sol, protegiendo la planta del estrés por calor y mejorando el microclima general de la parcela.' },
+    { image: '/Hogar/images/2.png', title: 'Biomasa y fertilidad del suelo', description: 'Las hojas y ramas podadas se dejan en el suelo, se descomponen y liberan nutrientes que alimentan al café. Este ciclo constante reduce progresivamente la dependencia de fertilizantes comprados, haciendo que la propia finca genere parte de su fertilidad.' },
+    { image: '/Hogar/images/3.png', title: 'Agua y protección del suelo', description: 'La cobertura vegetal permanente evita que la lluvia erosione la tierra y mejora la infiltración de agua. La materia orgánica actúa como una esponja que retiene humedad, dando a la planta mayor resistencia frente a sequías cortas.' },
+    { image: '/Hogar/images/4.png', title: 'Biodiversidad y control de plagas', description: 'Una mayor diversidad de árboles de sombra se asocia con menor incidencia de broca y mejor calidad del grano. La parcela diversa atrae enemigos naturales de las plagas, reduciendo la necesidad de control químico.' },
+    { image: '/Hogar/images/5.png', title: 'Abejas y miel', description: 'Aunque el café se autopoliniza, la visita de abejas mejora el cuajado de frutos y el tamaño y uniformidad del grano. Además, la finca puede sostener colmenas para producir miel y propóleo, generando un ingreso adicional sin competir por el uso de la tierra.' },
+    { image: '/Hogar/images/6.png', title: 'Diseño por estratos', description: 'El sistema se organiza en 4 niveles: árboles altos (maderables/frutales), árboles de sombra medios, el café como cultivo productivo, y cobertura baja protegiendo el suelo. Cada estrato cumple una función específica dentro del ciclo.' },
   ];
 
   const stats = [
@@ -178,14 +180,25 @@ const Manifesto = () => {
             {sintropicoCards.map((card, i) => (
               <div
                 key={i}
-                className="snap-start flex-shrink-0 w-[280px] md:w-[320px] rounded-2xl overflow-hidden backdrop-blur-xl"
+                className="snap-start flex-shrink-0 w-[85%] sm:w-[47%] rounded-2xl overflow-hidden backdrop-blur-xl"
                 style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}
               >
-                <div className="w-full h-[200px] overflow-hidden">
+                <div className="w-full h-[220px] overflow-hidden">
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="text-cream font-serif text-lg mb-2">{card.title}</h3>
+                  <h3
+                    className="mb-2"
+                    style={{
+                      fontFamily: "'Josefin Sans', sans-serif",
+                      fontWeight: 100,
+                      letterSpacing: '0.06em',
+                      color: '#D9A441',
+                      fontSize: '1.15rem',
+                    }}
+                  >
+                    {card.title}
+                  </h3>
                   <p className="text-cream/70 text-sm leading-relaxed">{card.description}</p>
                 </div>
               </div>
@@ -193,14 +206,14 @@ const Manifesto = () => {
           </div>
           {/* Arrows */}
           <button
-            onClick={() => carouselRef.current?.scrollBy({ left: -340, behavior: 'smooth' })}
+            onClick={() => carouselRef.current?.scrollBy({ left: -(carouselRef.current.clientWidth * 0.95), behavior: 'smooth' })}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 items-center justify-center rounded-full text-cream cursor-pointer"
             style={{ background: 'rgba(20,10,5,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
           >
             <i className="ri-arrow-left-s-line text-xl" />
           </button>
           <button
-            onClick={() => carouselRef.current?.scrollBy({ left: 340, behavior: 'smooth' })}
+            onClick={() => carouselRef.current?.scrollBy({ left: carouselRef.current.clientWidth * 0.95, behavior: 'smooth' })}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 items-center justify-center rounded-full text-cream cursor-pointer"
             style={{ background: 'rgba(20,10,5,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
           >
