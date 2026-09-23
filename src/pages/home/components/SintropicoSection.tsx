@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import {
-  IconCacao, IconPlatano, IconPina, IconYuca, IconNaranja, IconGuayaba,
+  IconCafe, IconPlatano, IconPina, IconYuca, IconNaranja, IconGuayaba,
   IconPapaya, IconLima, IconGuaba, IconPijuayo, IconArbol, IconAbeja,
   IconMoneda, IconAbono, IconSol, FloatIcon,
 } from './SintropicoIcons';
@@ -52,12 +52,12 @@ const miniBody: React.CSSProperties = {
 const SlideCambia = () => (
   <div>
     <span style={eyebrow}>Lo que cambia</span>
-    <h3 style={cardTitle}>Hoy usted vende cacao. Con este sistema vende cacao y fruta.</h3>
+    <h3 style={cardTitle}>Hoy usted vende café. Con este sistema vende café y fruta.</h3>
     <div className="grid md:grid-cols-2 gap-4">
       <div style={{ ...miniCard, background: '#3D2A18' }}>
         <p style={{ ...miniLabel, color: '#C8A671' }}>Parcela actual</p>
         <ul style={{ ...miniBody, paddingLeft: '1rem', listStyle: 'disc' }}>
-          <li>Un solo producto: cacao en grano.</li>
+          <li>Un solo producto: café en grano.</li>
           <li>Ingreso concentrado en la campaña.</li>
           <li>Suelo descubierto entre líneas, más maleza.</li>
           <li>Sombra despareja, plantas expuestas al sol.</li>
@@ -66,7 +66,7 @@ const SlideCambia = () => (
       <div style={{ ...miniCard, background: '#1F3D24', borderColor: 'rgba(143,174,78,0.35)' }}>
         <p style={{ ...miniLabel, color: '#A8C97F' }}>Con sistema sintrópico</p>
         <ul style={{ ...miniBody, paddingLeft: '1rem', listStyle: 'disc' }}>
-          <li>Cacao + plátano, piña, papaya, cítricos, guaba, pijuayo.</li>
+          <li>Café + plátano, piña, papaya, cítricos, guaba, pijuayo.</li>
           <li>Cosechas cada mes desde el año 1.</li>
           <li>Suelo siempre cubierto con la poda.</li>
           <li>Sombra ordenada: grano más grande y aromático.</li>
@@ -80,8 +80,8 @@ const SlideCambia = () => (
 const reglas = [
   { n: 1, t: 'Suelo siempre cubierto', d: 'Nunca dejamos tierra desnuda. Todo lo que se poda se pica y se queda en la parcela como abono.', icon: <IconAbono /> },
   { n: 2, t: 'Muchos pisos de altura', d: 'Plantas bajas, medianas y altas en el mismo espacio. Cada una aprovecha una parte distinta del sol.', icon: <IconSol /> },
-  { n: 3, t: 'Poda como abono', d: 'Podamos guaba y plátano 2 veces al año. Esa hoja verde alimenta al cacao: no se quema ni se saca.', icon: <IconGuaba /> },
-  { n: 4, t: 'Cada planta tiene su turno', d: 'Las de vida corta (yuca, papaya, plátano) dan plata rápido y luego dejan sitio a las de vida larga.', icon: <IconCacao /> },
+  { n: 3, t: 'Poda como abono', d: 'Podamos guaba y plátano 2 veces al año. Esa hoja verde alimenta al café: no se quema ni se saca.', icon: <IconGuaba /> },
+  { n: 4, t: 'Cada planta tiene su turno', d: 'Las de vida corta (yuca, papaya, plátano) dan plata rápido y luego dejan sitio a las de vida larga.', icon: <IconCafe /> },
 ];
 const SlideReglas = () => (
   <div>
@@ -105,7 +105,7 @@ const SlideReglas = () => (
 const estratos = [
   { nivel: 'Emergente · 15-25 m', txt: 'Bolaina, capirona, cedro — dan madera y rompen el viento.', color: '#1F3D24' },
   { nivel: 'Alto · 8-12 m', txt: 'Guaba y pijuayo — sombra, abono verde y flor para las abejas.', color: '#3E6B3E' },
-  { nivel: 'Medio · 3-5 m', txt: 'CACAO CHUNCHO, cítricos, guayaba, carambola — el corazón del sistema.', color: '#6B3620', bold: true },
+  { nivel: 'Medio · 3-5 m', txt: 'CAFÉ, cítricos, guayaba, carambola — el corazón del sistema.', color: '#6B3620', bold: true },
   { nivel: 'Bajo · 1,5-3 m', txt: 'Plátano y papaya.', color: '#B8842F' },
   { nivel: 'Rasante · 0-1 m', txt: 'Piña, cúrcuma, jengibre, yuca y maní de cobertura.', color: '#D9C4A0', dark: true },
 ];
@@ -113,33 +113,23 @@ const SlideEstratos = () => (
   <div>
     <span style={eyebrow}>Estratos</span>
     <h3 style={cardTitle}>Los 5 pisos de la parcela</h3>
-    <div className="grid md:grid-cols-2 gap-5 items-stretch">
-      <div className="flex flex-col gap-2.5">
-        {estratos.map((e) => (
-          <div key={e.nivel} className="flex-1 flex flex-col justify-center gap-1 rounded-xl px-4 py-3"
-            style={{ background: e.color }}>
-            <span style={{
-              fontFamily: "'Josefin Sans', sans-serif", fontSize: '0.68rem', letterSpacing: '0.05em',
-              color: e.dark ? 'rgba(30,20,10,0.7)' : 'rgba(255,255,255,0.65)',
-            }}>{e.nivel}</span>
-            <span style={{
-              fontFamily: "'Josefin Sans', sans-serif", fontSize: '0.85rem',
-              color: e.dark ? '#2A1D0E' : '#FBF6EE', fontWeight: e.bold ? 700 : 400,
-            }}>{e.txt}</span>
-          </div>
-        ))}
-      </div>
-      <div className="rounded-2xl overflow-hidden" style={{ background: '#FAF7F2', border: '1px solid rgba(140,90,30,0.12)' }}>
-        <img
-          src="/Principal/images/estratos-diagrama.jpeg"
-          alt="Diagrama de los 5 pisos de la parcela: emergente, alto, medio (cacao), bajo y rasante"
-          className="w-full h-full object-contain"
-          style={{ display: 'block' }}
-        />
-      </div>
+    <div className="flex flex-col gap-2.5">
+      {estratos.map((e) => (
+        <div key={e.nivel} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 rounded-xl px-4 py-3"
+          style={{ background: e.color }}>
+          <span style={{
+            fontFamily: "'Josefin Sans', sans-serif", fontSize: '0.68rem', letterSpacing: '0.05em',
+            color: e.dark ? 'rgba(30,20,10,0.7)' : 'rgba(255,255,255,0.65)', minWidth: '150px', flexShrink: 0,
+          }}>{e.nivel}</span>
+          <span style={{
+            fontFamily: "'Josefin Sans', sans-serif", fontSize: '0.85rem',
+            color: e.dark ? '#2A1D0E' : '#FBF6EE', fontWeight: e.bold ? 700 : 400,
+          }}>{e.txt}</span>
+        </div>
+      ))}
     </div>
     <p style={{ ...miniBody, color: '#6B5232', marginTop: '1rem', fontStyle: 'italic' }}>
-      El cacao chuncho vive en el piso medio y necesita entre 40% y 50% de sombra. Todo el diseño está hecho para darle esa sombra sin quitarle luz.
+      El café vive en el piso medio y necesita entre 40% y 50% de sombra. Todo el diseño está hecho para darle esa sombra sin quitarle luz.
     </p>
   </div>
 );
@@ -153,9 +143,9 @@ const calles = [
 const SlideMapa = () => (
   <div>
     <span style={eyebrow}>Vista desde arriba</span>
-    <h3 style={cardTitle}>Qué va entre cada planta de cacao</h3>
+    <h3 style={cardTitle}>Qué va entre cada planta de café</h3>
     <div className="flex flex-wrap items-center justify-center gap-2 mb-5" style={{ ...miniBody, color: '#5C4326', fontSize: '0.78rem' }}>
-      <FloatIcon><IconCacao size={40} /></FloatIcon><span>Cacao cada 3 m</span>
+      <FloatIcon><IconCafe size={40} /></FloatIcon><span>Café cada 3 m</span>
       <span style={{ opacity: 0.4 }}>·</span>
       <span>Calles a 4 m de distancia</span>
     </div>
@@ -169,14 +159,14 @@ const SlideMapa = () => (
       ))}
     </div>
     <p style={{ ...miniBody, color: '#6B5232', marginTop: '1rem', fontStyle: 'italic' }}>
-      Cada planta grande va justo al medio entre dos cacaos de la línea vecina, nunca frente a frente — así ninguna raíz compite y la sombra cae repartida.
+      Cada planta grande va justo al medio entre dos cafetos de la línea vecina, nunca frente a frente — así ninguna raíz compite y la sombra cae repartida.
     </p>
   </div>
 );
 
 // ─── Slide 5: Plátano, yuca y piña ──────────────────────────────────────
 const bajos = [
-  { icon: <IconPlatano />, t: 'Plátano / bellaco', s: 'cada 3 m', d: 'Da sombra rápida al cacao joven. Después de cosechar, el tallo se pica y queda como abono.' },
+  { icon: <IconPlatano />, t: 'Plátano / bellaco', s: 'cada 3 m', d: 'Da sombra rápida al café joven. Después de cosechar, el tallo se pica y queda como abono.' },
   { icon: <IconYuca />, t: 'Yuca', s: 'entre plátanos', d: 'Solo el primer año. Se cosecha a los 8-10 meses y libera el espacio.' },
   { icon: <IconPina />, t: 'Piña', s: 'en los bordes', d: 'Aguanta media sombra y protege el borde de la calle. Se cosecha entre los 16 y 18 meses.' },
 ];
@@ -224,7 +214,7 @@ const SlideMedianos = () => (
 
 // ─── Slide 7: Guaba, pijuayo y madera ────────────────────────────────────
 const altos = [
-  { icon: <IconGuaba />, t: 'Guaba / pacae', s: 'cada 6 m', d: 'Fija nitrógeno. Se poda 2 veces al año: esa hoja es el abono principal del cacao.' },
+  { icon: <IconGuaba />, t: 'Guaba / pacae', s: 'cada 6 m', d: 'Fija nitrógeno. Se poda 2 veces al año: esa hoja es el abono principal del café.' },
   { icon: <IconPijuayo />, t: 'Pijuayo', s: 'alternado', d: 'Da fruto desde el año 3. Su hoja dura protege el suelo en época seca.' },
   { icon: <IconArbol />, t: 'Bolaina, capirona, cedro', s: 'cada 12 m', d: 'El ahorro a largo plazo: madera para vender más adelante.' },
 ];
@@ -249,8 +239,8 @@ const SlideAltos = () => (
 const ingresos = [
   { periodo: 'Mes 8-12', t: 'Yuca, papaya y primer plátano', d: 'La primera venta, en el mismo año de la siembra.', color: '#D9A441' },
   { periodo: 'Año 2', t: 'Piña y plátano continuo', d: 'Cosechas todo el año. Entran las abejas.', color: '#C8961F' },
-  { periodo: 'Año 3-4', t: 'Cítricos y pijuayo', d: 'El cacao ya muestra mejor llenado de grano.', color: '#B8571E' },
-  { periodo: 'Año 5-7', t: 'Sistema en pleno', d: 'Guayaba, carambola, miel y cacao estable.', color: '#3E6B3E' },
+  { periodo: 'Año 3-4', t: 'Cítricos y pijuayo', d: 'El café ya florece y empieza a cuajar los primeros granos.', color: '#B8571E' },
+  { periodo: 'Año 5-7', t: 'Sistema en pleno', d: 'Guayaba, carambola, miel y café estable.', color: '#3E6B3E' },
   { periodo: 'Año 8+', t: 'Madera', d: 'Bolaina, capirona y cedro como ahorro familiar.', color: '#1F3D24' },
 ];
 const SlideIngresos = () => (
@@ -345,10 +335,10 @@ const SlideSiNo = () => (
 
 // ─── Slide 11: Lo que gana el agricultor ────────────────────────────────
 const ganancias = [
-  { t: 'Ingreso todo el año', d: 'Ya no depende solo de la campaña de cacao: cada mes hay algo que vender.' },
-  { t: 'Menos riesgo', d: 'Si el precio del cacao baja, las otras plantas sostienen la parcela.' },
+  { t: 'Ingreso todo el año', d: 'Ya no depende solo de la campaña de café: cada mes hay algo que vender.' },
+  { t: 'Menos riesgo', d: 'Si el precio del café baja, las otras plantas sostienen la parcela.' },
   { t: 'Menos gasto', d: 'Sin agroquímicos y con el suelo cubierto, baja el jornal y el costo de abono.' },
-  { t: 'Mejor grano', d: 'Sombra y suelo vivo dan mazorca más llena y fermentación más pareja.' },
+  { t: 'Mejor grano', d: 'Sombra y suelo vivo dan grano más parejo y mejor tueste.' },
   { t: 'Comida en casa', d: 'Plátano, yuca, papaya, cítricos y miel para la familia.' },
   { t: 'Patrimonio', d: 'Árboles maderables creciendo como ahorro familiar.', highlight: true },
 ];
@@ -446,7 +436,7 @@ export default function SintropicoSection() {
             lineHeight: 1.15,
             marginTop: '0.2rem',
           }}>
-            en la parcela de cacao chuncho
+            en la parcela de café
           </p>
         </div>
 

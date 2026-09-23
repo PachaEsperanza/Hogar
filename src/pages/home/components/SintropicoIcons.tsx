@@ -12,6 +12,18 @@ export const FloatIcon = ({ children, delay = 0 }: { children: React.ReactNode; 
   </div>
 );
 
+export const IconCafe = ({ size = 64 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 64 64">
+    <path d="M32 10 C 30 24, 30 42, 32 56" stroke="#3E6B3E" strokeWidth="2.5" fill="none" />
+    <circle cx="24" cy="22" r="6" fill="#8C4A2F" />
+    <circle cx="40" cy="24" r="6" fill="#A0562F" />
+    <circle cx="22" cy="36" r="6" fill="#A0562F" />
+    <circle cx="42" cy="38" r="6" fill="#8C4A2F" />
+    <ellipse cx="30" cy="14" rx="5" ry="7" fill="#5C7A3A" transform="rotate(-25 30 14)" />
+    <ellipse cx="36" cy="48" rx="5" ry="7" fill="#5C7A3A" transform="rotate(20 36 48)" />
+  </svg>
+);
+
 export const IconCacao = ({ size = 64 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 64 64">
     <ellipse cx="32" cy="34" rx="16" ry="24" fill="#8C4A2F" />
