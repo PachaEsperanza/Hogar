@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import CartPanel from './components/CartPanel';
 import AndeanBasketToast from './components/AndeanBasketToast';
 import Hero from './components/Hero';
-import Manifesto from './components/Manifesto';
+import SintropicoSection from './components/SintropicoSection';
 import MisionSection from './components/MisionSection';
 // import Products from './components/Products';
 // import ImpactSlider from './components/ImpactSlider';
@@ -69,7 +69,7 @@ const HomePage = () => {
       <Hero />
       <Farmers />
       <HistoriaSection />
-      <Manifesto />
+      <SintropicoSection />
       <MisionSection />
       {/* <ImpactSlider /> */}
       {/* <Products onAddToCart={handleAddToCart} /> */}
